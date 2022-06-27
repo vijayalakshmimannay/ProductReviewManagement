@@ -86,7 +86,7 @@ namespace ProductReviewManagement
             }
         }
         //UC 8 Create Datatable and add 25 default values in it.
-        public void CreateDataTable(List<ProductReview> productReviews)
+        public DataTable CreateDataTable(List<ProductReview> productReviews)
         {
             DataTable table = new DataTable();
             table.Columns.Add("ProductID", typeof(Int32));
@@ -103,7 +103,20 @@ namespace ProductReviewManagement
             {
                 Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + " " + " " + "UserID: " + " " + item.Field<int>("UserID") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
             }
+            return table;
         }
-        
+        //UC9 Retrieve all Records from datatable who's isLike value is true 
+        public void isLikeValueisTrue(DataTable table)
+        {
+            var data = (from product in table.AsEnumerable()
+                          where product.Field<bool>("isLike") == true
+                          select product);
+            Console.WriteLine("\nRecords Who's value is true.\n");
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + "\tUserID: " + item.Field<int>("UserID") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
+            }
+        }
+
     }
 }

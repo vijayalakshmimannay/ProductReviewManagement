@@ -1,4 +1,11 @@
-﻿namespace ProductReviewManagement
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+
+namespace ProductReviewManagement
 {
     public class ReviewManagement
     {
@@ -78,5 +85,25 @@
                 Console.WriteLine(list.ProductID + "  --  " + list.Review);
             }
         }
+        //UC 8 Create Datatable and add 25 default values in it.
+        public void CreateDataTable(List<ProductReview> productReviews)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ProductID", typeof(Int32));
+            table.Columns.Add("UserID", typeof(Int32));
+            table.Columns.Add("Rating", typeof(Int32));
+            table.Columns.Add("Review", typeof(string));
+            table.Columns.Add("isLike", typeof(bool));
+            foreach (var item in productReviews)
+            {
+                table.Rows.Add(item.ProductID, item.UserID, item.Rating, item.Review, item.isLike);
+            }
+            Console.WriteLine("Records in DataTable.");
+            foreach (var item in table.AsEnumerable())
+            {
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + " " + " " + "UserID: " + " " + item.Field<int>("UserID") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
+            }
+        }
+        
     }
 }

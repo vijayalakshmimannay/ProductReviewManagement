@@ -35,7 +35,7 @@ namespace ProductReviewManagement
                 new ProductReview() { ProductID = 21, UserID = 22, Rating = 5, Review = "Good", isLike = true },
                 new ProductReview() { ProductID = 22, UserID = 25, Rating = 3, Review = "Average", isLike = true },
                 new ProductReview() { ProductID = 23, UserID = 19, Rating = 2, Review = "Bad", isLike = true },
-                new ProductReview() { ProductID = 24, UserID = 56, Rating = 4, Review = "Nice", isLike = false },
+                new ProductReview() { ProductID = 24, UserID= 56, Rating = 4, Review = "Nice", isLike = false },
                 new ProductReview() { ProductID = 25, UserID = 67, Rating = 1, Review = "VeryBad", isLike = false },
 
             };

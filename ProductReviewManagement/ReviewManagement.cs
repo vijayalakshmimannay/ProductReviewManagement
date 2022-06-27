@@ -68,5 +68,15 @@
                 Console.WriteLine("Product ID: " + item.ProductID + "\tUser ID: " + item.UserID + "\tRating: " + item.Rating + "\tReview: " + item.Review + "\tisLike: " + item.isLike);
             }
         }
+        //UC7 Retrieve only ProductID and Review from records
+        public void RetrieveProductIDAndReviewUsingSelectLINQ(List<ProductReview> productReviewList)
+        {
+            var result = productReviewList.Select(reviews => new { ProductID = reviews.ProductID, Review = reviews.Review });
+            Console.WriteLine("Product ID\t|\tReview");
+            foreach (var list in result)
+            {
+                Console.WriteLine(list.ProductID + "  --  " + list.Review);
+            }
+        }
     }
 }

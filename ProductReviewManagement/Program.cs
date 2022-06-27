@@ -48,8 +48,10 @@ namespace ProductReviewManagement
             // reviewManagement.SkipTop5RecordsFromList(productReviewList);
             //reviewManagement.RetrieveProductIDAndReviewUsingSelectLINQ(productReviewList);
             //reviewManagement.CreateDataTable(productReviewList);
+            //DataTable table = reviewManagement.CreateDataTable(productReviewList);
+            //reviewManagement.isLikeValueisTrue(table);
             DataTable table = reviewManagement.CreateDataTable(productReviewList);
-            reviewManagement.isLikeValueisTrue(table);
+            reviewManagement.AverageRatingOfEachProductID(table);
 
         }
     }

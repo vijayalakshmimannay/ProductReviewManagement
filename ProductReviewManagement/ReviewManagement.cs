@@ -57,5 +57,16 @@
                 Console.WriteLine(list.ProductID + "--" + list.Review);
             }
         }
+        //UC6 skip top 5 records from the list and display other records
+        public void SkipTop5RecordsFromList(List<ProductReview> productReviewList)
+        {
+            var result = (from product in productReviewList
+                          select product).Skip(5);
+            Console.WriteLine("Records after skipping top 5.");
+            foreach (var item in result)
+            {
+                Console.WriteLine("Product ID: " + item.ProductID + "\tUser ID: " + item.UserID + "\tRating: " + item.Rating + "\tReview: " + item.Review + "\tisLike: " + item.isLike);
+            }
+        }
     }
 }

@@ -42,7 +42,9 @@ namespace ProductReviewManagement
             ProductReviewManagement.ReviewManagement reviewManagement = new ProductReviewManagement.ReviewManagement();
             // reviewManagement.getReview(productReviewList);
             //reviewManagement.TopRecords(productReviewList);
-            reviewManagement.SelectRecords(productReviewList);
+           // reviewManagement.SelectRecords(productReviewList);
+            reviewManagement.CountOfReviewForEachProductID(productReviewList);
+
         }
     }
 }

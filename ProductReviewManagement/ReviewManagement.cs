@@ -11,7 +11,6 @@
             }
 
         }
-        //UC2
         //UC2 to get top 3 records having high rateings
         public void TopRecords(List<ProductReview> productReviewList)
         {
@@ -37,6 +36,7 @@
 
             }
         }
+        //UC4 Retrieve count of review present for each productID
         public void CountOfReviewForEachProductID(List<ProductReview> productReviewList)
         {
             var data = (productReviewList.GroupBy(productReview => productReview.ProductID).Select(p => new { ProductID = p.Key, Count = p.Count() }));
@@ -44,6 +44,17 @@
             foreach (var list in data)
             {
                 Console.WriteLine(list.ProductID + "--" + list.Count);
+            }
+        }
+        //UC5 Retrieve only productID and review from the list for all records
+        public void RetriveproductIDAndReviewFromList(List<ProductReview> productReviewList)
+        {
+            var data = (from productReview in productReviewList
+                        select new { ProductID = productReview.ProductID, Review = productReview.Review });
+            Console.WriteLine("Product ID|Review");
+            foreach (var list in data)
+            {
+                Console.WriteLine(list.ProductID + "--" + list.Review);
             }
         }
     }

@@ -29,12 +29,21 @@
             var recordData = (from product in productReviewList
                               where product.Rating > 3 &&
                           (product.ProductID == 1 || product.ProductID == 4 || product.ProductID == 9)
-                          select product);
+                              select product);
             Console.WriteLine("Record having ratings greater than 3 and who's product ID is 1 or 4 or 9.");
             foreach (var item in recordData)
             {
                 Console.WriteLine("Product ID: " + item.ProductID + "\tUser ID: " + item.UserID + "\tRating: " + item.Rating + "\tReview: " + item.Review + "\tisLike: " + item.isLike);
 
+            }
+        }
+        public void CountOfReviewForEachProductID(List<ProductReview> productReviewList)
+        {
+            var data = (productReviewList.GroupBy(productReview => productReview.ProductID).Select(p => new { ProductID = p.Key, Count = p.Count() }));
+            Console.WriteLine("Product ID|Count");
+            foreach (var list in data)
+            {
+                Console.WriteLine(list.ProductID + "--" + list.Count);
             }
         }
     }

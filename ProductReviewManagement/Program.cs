@@ -45,7 +45,8 @@ namespace ProductReviewManagement
             // reviewManagement.SelectRecords(productReviewList);
             //reviewManagement.CountOfReviewForEachProductID(productReviewList);
             //reviewManagement.RetriveproductIDAndReviewFromList(productReviewList);
-            reviewManagement.SkipTop5RecordsFromList(productReviewList);
+            // reviewManagement.SkipTop5RecordsFromList(productReviewList);
+            reviewManagement.RetrieveProductIDAndReviewUsingSelectLINQ(productReviewList);
 
         }
     }

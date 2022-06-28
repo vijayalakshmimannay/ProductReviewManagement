@@ -20,7 +20,7 @@ namespace ProductReviewManagement
                 new ProductReview() { ProductID = 6, UserID = 10, Rating = 8, Review = "Nice", isLike = true },
                 new ProductReview() { ProductID = 7, UserID = 6, Rating = 3, Review = "Average", isLike = true },
                 new ProductReview() { ProductID = 8, UserID = 5, Rating = 2, Review = "Bad", isLike = true },
-                new ProductReview() { ProductID = 9, UserID = 10, Rating = 5, Review = "Good", isLike = true },
+                new ProductReview() { ProductID = 9, UserID = 10, Rating = 4, Review = "Nice", isLike = true },
                 new ProductReview() { ProductID = 10, UserID = 41, Rating = 2, Review = "Bad", isLike = false },
                 new ProductReview() { ProductID = 11, UserID = 5, Rating = 4, Review = "Nice", isLike = false },
                 new ProductReview() { ProductID = 12, UserID = 4, Rating = 1, Review = "VeryBad", isLike = true },
@@ -48,12 +48,20 @@ namespace ProductReviewManagement
             // reviewManagement.SkipTop5RecordsFromList(productReviewList);
             //reviewManagement.RetrieveProductIDAndReviewUsingSelectLINQ(productReviewList);
             //reviewManagement.CreateDataTable(productReviewList);
+
             //DataTable table = reviewManagement.CreateDataTable(productReviewList);
             //reviewManagement.isLikeValueisTrue(table);
+
             //DataTable table = reviewManagement.CreateDataTable(productReviewList);
             // reviewManagement.AverageRatingOfEachProductID(table);
-            DataTable table = reviewManagement.CreateDataTable(productReviewList);
-            reviewManagement.ReviewMessageNice(table);
+
+            //DataTable table = reviewManagement.CreateDataTable(productReviewList);
+            //reviewManagement.ReviewMessageNice(table);
+
+             DataTable table = reviewManagement.CreateDataTable(productReviewList);
+             reviewManagement.RetrieveUserID10Records(table);
+
+
         }
     }
 }

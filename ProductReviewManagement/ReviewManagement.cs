@@ -143,6 +143,19 @@ namespace ProductReviewManagement
                 Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + "\tUserID: " + item.Field<int>("UserID") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
             }
         }
+        //UC12 Retrieve all records from list whose USerID = 10 and order by rating
+        public void RetrieveUserID10Records(DataTable table)
+        {
+            var result = from product in table.AsEnumerable()
+                         where product.Field<int>("UserID") == 10
+                         orderby product.Field<int>("Rating") descending
+                         select product;
+            Console.WriteLine("Records having review Nice");
+            foreach (var item in result)
+            {
+                Console.WriteLine("ProductID " + item.Field<int>("ProductID") + "\tUserID " + item.Field<int>("UserID") + "\tRating " + item.Field<int>("Rating") + "\tReview " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
+            }
+        }
 
     }
 }

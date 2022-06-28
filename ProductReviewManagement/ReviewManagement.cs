@@ -150,7 +150,7 @@ namespace ProductReviewManagement
                          where product.Field<int>("UserID") == 10
                          orderby product.Field<int>("Rating") descending
                          select product;
-            Console.WriteLine("Records having review Nice");
+            Console.WriteLine("Records who's having UserID 10:");
             foreach (var item in result)
             {
                 Console.WriteLine("ProductID " + item.Field<int>("ProductID") + "\tUserID " + item.Field<int>("UserID") + "\tRating " + item.Field<int>("Rating") + "\tReview " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));

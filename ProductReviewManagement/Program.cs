@@ -50,9 +50,10 @@ namespace ProductReviewManagement
             //reviewManagement.CreateDataTable(productReviewList);
             //DataTable table = reviewManagement.CreateDataTable(productReviewList);
             //reviewManagement.isLikeValueisTrue(table);
+            //DataTable table = reviewManagement.CreateDataTable(productReviewList);
+            // reviewManagement.AverageRatingOfEachProductID(table);
             DataTable table = reviewManagement.CreateDataTable(productReviewList);
-            reviewManagement.AverageRatingOfEachProductID(table);
-
+            reviewManagement.ReviewMessageNice(table);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ProductReviewManagement
 {
     public class ReviewManagement
     {
-        //UC1
+        //UC1 Create List andadd 25 default values
         public void getReview(List<ProductReview> productReviewList)
         {
             foreach (var item in productReviewList)
@@ -18,7 +18,7 @@ namespace ProductReviewManagement
             }
 
         }
-        //UC2 to get top 3 records having high rateings
+        //UC2 get top 3 records having high ratings
         public void TopRecords(List<ProductReview> productReviewList)
         {
             var result = (from product in productReviewList
@@ -98,7 +98,7 @@ namespace ProductReviewManagement
             {
                 table.Rows.Add(item.ProductID, item.UserID, item.Rating, item.Review, item.isLike);
             }
-            Console.WriteLine("Records in DataTable.");
+            Console.WriteLine("Records in DataTable");
             foreach (var item in table.AsEnumerable())
             {
                 Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + " " + " " + "UserID: " + " " + item.Field<int>("UserID") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
@@ -129,6 +129,18 @@ namespace ProductReviewManagement
             foreach (var item in result)
             {
                 Console.WriteLine("ProductID: " + item.ProductID + " --- " + "Average: " + item.Average);
+            }
+        }
+        //UC11 Retrieve all records from list whose contains review message "Nice"
+        public void ReviewMessageNice(DataTable table)
+        {
+            var result = from product in table.AsEnumerable()
+                         where product.Field<string>("Review") == "Nice"
+                         select product;
+            Console.WriteLine("Records having review Nice:");
+            foreach (var item in result)
+            {
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + "\tUserID: " + item.Field<int>("UserID") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
             }
         }
 
